@@ -55,5 +55,22 @@ export class Rover implements VehicleInterface {
 		}
 	}
 
+    moveForwardByOne() {
+        switch (this.currentOrient) {
+            case 'N':
+                return this.currentYCoord++;
+                break
+            case 'E':
+                return this.currentXCoord++;
+                break
+            case 'W':
+                return this.currentXCoord--;
+                break
+            case 'S':
+                return this.currentYCoord--;
+                break
+        }
+    }
+
 
 }

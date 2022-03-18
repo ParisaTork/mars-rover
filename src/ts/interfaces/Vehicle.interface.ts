@@ -18,7 +18,7 @@ export interface VehicleInterface {
 
     spinRight() : OrientationType
 
-    // moveForwardByOne() : number
+    moveForwardByOne() : number
 
     // getCurrentCoords() : String
 
