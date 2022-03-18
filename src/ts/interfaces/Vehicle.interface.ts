@@ -28,7 +28,7 @@ export interface VehicleInterface {
 
     setCurrentOrientation(newOrient : OrientationType) : String
 
-    // runInstructions(str : string) : string
+    runInstructions(str : string) : string
 
     // isClash(newXCoord: number, newYCoord: number) : boolean
 

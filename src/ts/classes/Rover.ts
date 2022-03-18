@@ -99,4 +99,22 @@ export class Rover implements VehicleInterface {
         }
     }
 
+    runInstructions(str : string) : string {
+        const instructions = str.split(''); 
+        for (let i = 0; i < instructions.length; i++) {
+            switch (instructions[i]) {
+                case 'L':
+                    this.spinLeft();
+                    break
+                case 'R':
+                    this.spinRight();
+                    break
+                case 'M':
+                    this.moveForwardByOne();   
+            }
+        }
+        
+        return `${this.currentXCoord} ${this.currentYCoord} ${this.currentOrient}`;
+    }
+
 }
