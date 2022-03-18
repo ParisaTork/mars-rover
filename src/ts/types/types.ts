@@ -1,1 +1,1 @@
-// TODO
+export type OrientationType = 'N' | 'E' | 'W' | 'S';
