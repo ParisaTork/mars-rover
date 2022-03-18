@@ -5,5 +5,5 @@ export interface PlateauInterface {
     
     getPlateauCoords() : string
 
-    // setPlateauCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
+    setPlateauCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
 }
