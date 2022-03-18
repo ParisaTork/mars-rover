@@ -42,4 +42,14 @@ import {Plateau} from '../src/ts/classes/Plateau'
       });
   });
 
+  describe('Test for Rover Movement', () => {
+    it('should be able to move forward by one', () => {
+      const newInstanceOfRover = new Rover(3,3,'N');
+      newInstanceOfRover.moveForwardByOne();
+      expect(newInstanceOfRover.currentXCoord).toEqual(3);
+      expect(newInstanceOfRover.currentYCoord).toEqual(4);
+      expect(newInstanceOfRover.currentOrient).toEqual('N');
+    });
+  });
+
 
