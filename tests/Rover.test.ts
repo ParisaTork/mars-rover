@@ -64,4 +64,11 @@ import {Plateau} from '../src/ts/classes/Plateau'
     });
   });
 
+  describe('Test for Rover Coordinate Setter', () => {
+    it('should be able to set the coordinates of the Rover', () => {
+      const newInstanceOfRover = new Rover(3,3,'N');
+      expect(newInstanceOfRover.setCurrentCoords(4, 4)).toEqual(`4 4`);
+    });
+  });
+
 
