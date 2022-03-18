@@ -71,4 +71,11 @@ import {Plateau} from '../src/ts/classes/Plateau'
     });
   });
 
+  describe('Test for Rover Orientation Getter', () => {
+    it('should be return the current orientation of the Rover', () => {
+      const newInstanceOfRover = new Rover(3,3,'N');
+      expect(newInstanceOfRover.getCurrentOrientation()).toEqual('N');
+    });
+  });
+
 
