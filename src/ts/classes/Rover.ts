@@ -90,4 +90,13 @@ export class Rover implements VehicleInterface {
         return `${this.currentOrient}`;
     } 
 
+    setCurrentOrientation(newOrient : OrientationType) : String {
+        if (newOrient === undefined) {
+            return `Please enter a new vehicle orientation e.g. N, E, W, S`;
+        } else {
+            this.currentOrient = newOrient;
+            return `${this.currentOrient}`;
+        }
+    }
+
 }

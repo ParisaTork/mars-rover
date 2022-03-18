@@ -26,7 +26,7 @@ export interface VehicleInterface {
 
     getCurrentOrientation() : String
 
-    // setCurrentOrientation(newOrient : OrientationType) : String
+    setCurrentOrientation(newOrient : OrientationType) : String
 
     // runInstructions(str : string) : string
 
