@@ -52,4 +52,16 @@ import {Plateau} from '../src/ts/classes/Plateau'
     });
   });
 
+  describe('Test for Rover Coordinate Getter', () => {
+    it('should be return the current coordinates of the Rover', () => {
+      const newInstanceOfRover = new Rover(3,3,'N');
+      expect(newInstanceOfRover.getCurrentCoords()).toEqual('3 3');
+    });
+    it('after moving forward, it should be return the current coordinates of the Rover', () => {
+      const newInstanceOfRover = new Rover(4,4,'N');
+      newInstanceOfRover.moveForwardByOne()
+      expect(newInstanceOfRover.getCurrentCoords()).toEqual('4 5');
+    });
+  });
+
 
