@@ -16,7 +16,7 @@ export interface VehicleInterface {
     
     spinLeft() : OrientationType
 
-    // spinRight() : OrientationType
+    spinRight() : OrientationType
 
     // moveForwardByOne() : number
 

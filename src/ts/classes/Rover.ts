@@ -38,5 +38,22 @@ export class Rover implements VehicleInterface {
 		}
 	}
 
+    spinRight() : OrientationType {
+		switch (this.currentOrient) {
+			case 'N':
+				return this.currentOrient = 'E'
+				break
+            case 'E':
+				return this.currentOrient = 'S'
+				break
+			case 'W':
+				return this.currentOrient = 'N'
+				break
+			case 'S':
+				return this.currentOrient = 'W'
+				break
+		}
+	}
+
 
 }
