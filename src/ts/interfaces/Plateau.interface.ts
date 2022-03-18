@@ -3,7 +3,7 @@ export interface PlateauInterface {
     maxYCoord : number
     maxZCoord? : number
     
-    // getPlateauCoords() : string
+    getPlateauCoords() : string
 
     // setPlateauCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
 }

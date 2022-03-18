@@ -6,4 +6,9 @@ export class Plateau implements PlateauInterface {
         this.maxXCoord = maxXCoord
         this.maxYCoord = maxYCoord
     }
+
+    getPlateauCoords() : string {
+        return `${this.maxXCoord} ${this.maxYCoord}`;
+    }
+
 }
