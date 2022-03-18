@@ -25,3 +25,4 @@ import {Plateau} from '../src/ts/classes/Plateau'
       newInstanceOfRover4.spinLeft(); 
       expect(newInstanceOfRover4.currentOrient).toEqual('E');
     });
+});

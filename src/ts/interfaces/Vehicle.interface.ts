@@ -14,7 +14,7 @@ export interface VehicleInterface {
     finalZCoord?: number
     finalOrient: OrientationType
     
-    // spinLeft() : OrientationType
+    spinLeft() : OrientationType
 
     // spinRight() : OrientationType
 
