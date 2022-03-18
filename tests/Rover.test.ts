@@ -25,4 +25,21 @@ import {Plateau} from '../src/ts/classes/Plateau'
       newInstanceOfRover4.spinLeft(); 
       expect(newInstanceOfRover4.currentOrient).toEqual('E');
     });
-});
+
+    it('should be able to spin right', () => {
+        const newInstanceOfRover = new Rover(3,3,'N');
+        newInstanceOfRover.spinRight(); 
+        expect(newInstanceOfRover.currentOrient).toEqual('E');
+        const newInstanceOfRover2 = new Rover(3,3,'E');
+        newInstanceOfRover2.spinRight(); 
+        expect(newInstanceOfRover2.currentOrient).toEqual('S');
+        const newInstanceOfRover3 = new Rover(3,3,'W');
+        newInstanceOfRover3.spinRight(); 
+        expect(newInstanceOfRover3.currentOrient).toEqual('N');
+        const newInstanceOfRover4 = new Rover(3,3,'S');
+        newInstanceOfRover4.spinRight(); 
+        expect(newInstanceOfRover4.currentOrient).toEqual('W');
+      });
+  });
+
+
