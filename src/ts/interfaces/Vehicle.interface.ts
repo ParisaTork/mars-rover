@@ -14,24 +14,24 @@ export interface VehicleInterface {
     finalZCoord?: number
     finalOrient: OrientationType
     
-    spinLeft() : OrientationType
+    // spinLeft() : OrientationType
 
-    spinRight() : OrientationType
+    // spinRight() : OrientationType
 
-    moveForwardByOne() : number
+    // moveForwardByOne() : number
 
-    getCurrentCoords() : String
+    // getCurrentCoords() : String
 
-    setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
+    // setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
 
-    getCurrentOrientation() : String
+    // getCurrentOrientation() : String
 
-    setCurrentOrientation(newOrient : OrientationType) : String
+    // setCurrentOrientation(newOrient : OrientationType) : String
 
-    runInstructions(str : string) : string
+    // runInstructions(str : string) : string
 
-    isClash(newXCoord: number, newYCoord: number) : boolean
+    // isClash(newXCoord: number, newYCoord: number) : boolean
 
-    isOutBound(newXCoord: number, newYCoord: number): boolean
+    // isOutBound(newXCoord: number, newYCoord: number): boolean
 
 }
