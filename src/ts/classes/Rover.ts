@@ -72,7 +72,9 @@ export class Rover implements VehicleInterface {
         }
     }
 
-    
+    getCurrentCoords() : String {
+        return `${this.currentXCoord} ${this.currentYCoord}`;
+    }
 
 
 }

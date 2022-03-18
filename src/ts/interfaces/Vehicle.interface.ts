@@ -20,7 +20,7 @@ export interface VehicleInterface {
 
     moveForwardByOne() : number
 
-    // getCurrentCoords() : String
+    getCurrentCoords() : String
 
     // setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
 
