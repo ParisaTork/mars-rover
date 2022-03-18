@@ -86,4 +86,8 @@ export class Rover implements VehicleInterface {
             }
 		}
 
+    getCurrentOrientation() : String {
+        return `${this.currentOrient}`;
+    } 
+
 }
