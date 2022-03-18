@@ -78,4 +78,11 @@ import {Plateau} from '../src/ts/classes/Plateau'
     });
   });
 
+  describe('Test for Rover Orientation Setter', () => {
+    it('should be set the orientation of the Rover', () => {
+      const newInstanceOfRover = new Rover(3,3,'N');
+      expect(newInstanceOfRover.setCurrentOrientation('S')).toEqual(`S`);
+    });
+  });
+
 
