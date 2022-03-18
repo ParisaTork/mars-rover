@@ -76,5 +76,14 @@ export class Rover implements VehicleInterface {
         return `${this.currentXCoord} ${this.currentYCoord}`;
     }
 
+    setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string {
+		if (newZCoord !== undefined || newXCoord < 0 || newYCoord < 0) {
+			throw 'Please enter a positive integer';
+		} else {
+                this.currentXCoord = newXCoord;
+                this.currentYCoord = newYCoord;
+                return `${this.currentXCoord} ${this.currentYCoord}`;
+            }
+		}
 
 }

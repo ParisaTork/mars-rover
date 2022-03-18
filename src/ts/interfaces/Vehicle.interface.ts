@@ -22,7 +22,7 @@ export interface VehicleInterface {
 
     getCurrentCoords() : String
 
-    // setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
+    setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
 
     // getCurrentOrientation() : String
 
