@@ -93,4 +93,18 @@ import {Plateau} from '../src/ts/classes/Plateau'
     });
   });
 
+  describe('Test test case in brief', () => {
+    it(`should give the same output as in the brief`, () => {
+      const maxX = 5;
+      const maxY = 5;
+      const newInstanceOfPlateau = new Plateau(maxX, maxY);
+      const newInstanceOfRover = new Rover(1,2,'N');
+      const movedInstance = newInstanceOfRover.runInstructions('LMLMLMLMM');
+      const newInstanceOfRover2 = new Rover(3,3,'E');
+      const movedInstance2 = newInstanceOfRover2.runInstructions('MMRMMRMRRM');
+      expect(movedInstance).toEqual('1 3 N');
+      expect(movedInstance2).toEqual('5 1 E');
+    });
+  });
+
 
