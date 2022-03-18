@@ -85,4 +85,12 @@ import {Plateau} from '../src/ts/classes/Plateau'
     });
   });
 
+  describe('Test for Rover runInstructions method', () => {
+    it('should move or spin the Rover when given valid instructions', () => {
+      const newInstanceOfRover = new Rover(1,2,'N');
+      const movedInstance = newInstanceOfRover.runInstructions('LMLMLMLMM');
+      expect(movedInstance).toEqual('1 3 N');
+    });
+  });
+
 
