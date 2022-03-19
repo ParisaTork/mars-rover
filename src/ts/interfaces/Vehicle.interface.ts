@@ -20,13 +20,13 @@ export interface VehicleInterface {
 
     moveForwardByOne() : number
 
-    getCurrentCoords() : String
+    getCurrentCoords() : string
 
     setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string
 
-    getCurrentOrientation() : String
+    getCurrentOrientation() : string
 
-    setCurrentOrientation(newOrient : OrientationType) : String
+    setCurrentOrientation(newOrient : OrientationType) : string
 
     runInstructions(str : string) : string
 

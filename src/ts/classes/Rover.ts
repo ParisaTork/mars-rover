@@ -77,7 +77,7 @@ export class Rover implements VehicleInterface {
         }
     }
 
-    getCurrentCoords() : String {
+    getCurrentCoords() : string {
         return `${this.currentXCoord} ${this.currentYCoord}`;
     }
 
@@ -91,11 +91,11 @@ export class Rover implements VehicleInterface {
             }
 		}
 
-    getCurrentOrientation() : String {
+    getCurrentOrientation() : string {
         return `${this.currentOrient}`;
     } 
 
-    setCurrentOrientation(newOrient : OrientationType) : String {
+    setCurrentOrientation(newOrient : OrientationType) : string {
         if (newOrient === undefined) {
             return `Please enter a new vehicle orientation e.g. N, E, W, S`;
         } else {
@@ -122,8 +122,7 @@ export class Rover implements VehicleInterface {
             }
             if (this.isOutBound())  {
                 return `Rover would go out of bounds`;
-            }
-            if (this.isCrash(this.currentXCoord, this.currentYCoord)) {
+            } else if (this.isCrash(this.currentXCoord, this.currentYCoord)) {
                 return `Rover would crash into another rover`;
             }     
         }
@@ -138,13 +137,13 @@ export class Rover implements VehicleInterface {
         if (this.currentXCoord > Rover.plateauMaxXCoord) {
             return true;
         } 
-        if (this.currentYCoord > Rover.plateauMaxYCoord) {
+        else if (this.currentYCoord > Rover.plateauMaxYCoord) {
             return true;
         }
-        if (this.currentXCoord < 0) {
+        else if (this.currentXCoord < 0) {
             return true;
         } 
-        if (this.currentYCoord < 0) {
+        else if (this.currentYCoord < 0) {
             return true;
         }
         return false;
@@ -157,7 +156,6 @@ export class Rover implements VehicleInterface {
                return true;
             }
         }
-    
         return false;
     }
 
