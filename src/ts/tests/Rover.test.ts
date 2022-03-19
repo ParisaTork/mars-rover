@@ -118,6 +118,19 @@ import {Plateau} from '../classes/Plateau'
     });
   });
 
+  describe('Test Rover cannot be placed on top of another rover', () => {
+    it(`cannot be placed on top of another rover`, () => {
+      const maxX = 5;
+      const maxY = 5;
+      const newInstanceOfPlateau = new Plateau(maxX, maxY);
+      const newInstanceOfRover = new Rover(1,2,'N');
+      const movedInstance = newInstanceOfRover.runInstructions('L');
+      const newInstanceOfRover2 = new Rover(1,2,'S');
+      const movedInstance2 = newInstanceOfRover2.runInstructions('L');
+      expect(movedInstance2).toEqual('Rover cannot be placed on top of another rover');
+    });
+  });
+
 
 
 
