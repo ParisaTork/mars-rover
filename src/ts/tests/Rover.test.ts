@@ -131,6 +131,18 @@ import {Plateau} from '../classes/Plateau'
     });
   });
 
+  describe('Test Rover would crash into another rover', () => {
+    it(`would crash into another rover`, () => {
+      const maxX = 5;
+      const maxY = 5;
+      const newInstanceOfPlateau = new Plateau(maxX, maxY);
+      const newInstanceOfRover = new Rover(1,2,'N');
+      const movedInstance = newInstanceOfRover.runInstructions('L');
+      const newInstanceOfRover2 = new Rover(1,3,'S');
+      expect(newInstanceOfRover2.runInstructions('M')).toEqual('Rover would crash into another rover');
+    });
+  });
+
 
 
 
