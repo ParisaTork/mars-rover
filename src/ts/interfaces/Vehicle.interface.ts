@@ -32,6 +32,6 @@ export interface VehicleInterface {
 
     // isClash(newXCoord: number, newYCoord: number) : boolean
 
-    // isOutBound(newXCoord: number, newYCoord: number): boolean
+    isOutBound(newXCoord: number, newYCoord: number): boolean
 
 }

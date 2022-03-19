@@ -21,6 +21,9 @@ export class Rover implements VehicleInterface {
         this.currentOrient = startOrient
     }
 
+    static plateauMaxXCoord: number;
+    static plateauMaxYCoord: number;
+
     spinLeft() : OrientationType {
 		switch (this.currentOrient) {
 			case 'N':
@@ -112,9 +115,28 @@ export class Rover implements VehicleInterface {
                 case 'M':
                     this.moveForwardByOne();   
             }
+            if (this.isOutBound())  {
+                return `Rover would go out of bounds`;
+            }
         }
         
         return `${this.currentXCoord} ${this.currentYCoord} ${this.currentOrient}`;
+    }
+
+    isOutBound(): boolean {
+        if (this.currentXCoord > Rover.plateauMaxXCoord) {
+            return true;
+        } 
+        if (this.currentYCoord > Rover.plateauMaxYCoord) {
+            return true;
+        }
+        if (this.currentXCoord < 0) {
+            return true;
+        } 
+        if (this.currentYCoord < 0) {
+            return true;
+        }
+        return false;
     }
 
 }
