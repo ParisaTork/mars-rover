@@ -107,4 +107,17 @@ import {Plateau} from '../classes/Plateau'
     });
   });
 
+  describe('Testing when rover moves off plateau', () => {
+    it(`should return 'Rover would go out of bounds'`, () => {
+      Rover.plateauMaxXCoord = 5;
+      Rover.plateauMaxYCoord = 5;
+      const newInstanceOfPlateau = new Plateau(Rover.plateauMaxXCoord, Rover.plateauMaxYCoord);
+      const newInstanceOfRover = new Rover(0,0,'S');
+      const movedInstance2 = newInstanceOfRover.runInstructions('M');
+      expect(movedInstance2).toEqual('Rover would go out of bounds');
+    });
+  });
+
+
+
 
