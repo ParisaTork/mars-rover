@@ -23,6 +23,8 @@ export class Rover implements VehicleInterface {
 
     static plateauMaxXCoord: number;
     static plateauMaxYCoord: number;
+    static roversFinal: number[][] = Array(100).fill(0).map(()=>Array(2).fill(0));
+    static roverCount: number = 0;
 
     spinLeft() : OrientationType {
 		switch (this.currentOrient) {
@@ -104,6 +106,9 @@ export class Rover implements VehicleInterface {
 
     runInstructions(str : string) : string {
         const instructions = str.split(''); 
+        if (this.isCrash(this.currentXCoord, this.currentYCoord)) {
+            return `Rover cannot be placed on top of another rover`;
+        }      
         for (let i = 0; i < instructions.length; i++) {
             switch (instructions[i]) {
                 case 'L':
@@ -120,6 +125,9 @@ export class Rover implements VehicleInterface {
             }
         }
         
+        Rover.roversFinal[Rover.roverCount][0] = this.currentXCoord;
+        Rover.roversFinal[Rover.roverCount][1] = this.currentYCoord;
+        Rover.roverCount++;
         return `${this.currentXCoord} ${this.currentYCoord} ${this.currentOrient}`;
     }
 
@@ -136,6 +144,17 @@ export class Rover implements VehicleInterface {
         if (this.currentYCoord < 0) {
             return true;
         }
+        return false;
+    }
+
+    isCrash(newXCoord: number, newYCoord: number): boolean {
+        for (let i = 0; i < Rover.roverCount ; i++ ) {
+            if (Rover.roversFinal[i][0] === newXCoord && 
+                Rover.roversFinal[i][1] === newYCoord) {
+               return true;
+            }
+        }
+    
         return false;
     }
 

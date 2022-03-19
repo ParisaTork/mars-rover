@@ -30,7 +30,7 @@ export interface VehicleInterface {
 
     runInstructions(str : string) : string
 
-    // isClash(newXCoord: number, newYCoord: number) : boolean
+    isCrash(newXCoord: number, newYCoord: number) : boolean
 
     isOutBound(newXCoord: number, newYCoord: number): boolean
 
