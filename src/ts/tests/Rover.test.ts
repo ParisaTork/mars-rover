@@ -1,5 +1,5 @@
-import {Rover} from '../src/ts/classes/Rover';
-import {Plateau} from '../src/ts/classes/Plateau'
+import {Rover} from '../classes/Rover';
+import {Plateau} from '../classes/Plateau'
 
   describe('Test for Rover Class', () => {
     it('should return values of coordinates', () => {

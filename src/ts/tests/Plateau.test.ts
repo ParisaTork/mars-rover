@@ -1,4 +1,4 @@
-import { Plateau } from '../src/ts/classes/Plateau';
+import { Plateau } from '../classes/Plateau';
 
 describe('Test for Plateau Class', () => {
     it('should return values of coordinates', () => {
