@@ -123,6 +123,9 @@ export class Rover implements VehicleInterface {
             if (this.isOutBound())  {
                 return `Rover would go out of bounds`;
             }
+            if (this.isCrash(this.currentXCoord, this.currentYCoord)) {
+                return `Rover would crash into another rover`;
+            }     
         }
         
         Rover.roversFinal[Rover.roverCount][0] = this.currentXCoord;

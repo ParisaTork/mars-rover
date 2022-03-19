@@ -1,6 +1,11 @@
 import {Rover} from '../classes/Rover';
 import {Plateau} from '../classes/Plateau'
 
+beforeEach(() => {
+  Rover.roversFinal = Array(100).fill(0).map(()=>Array(2).fill(0));
+  Rover.roverCount = 0;
+});
+
   describe('Test for Rover Class', () => {
     it('should return values of coordinates', () => {
       const newInstanceOfRover = new Rover(3,3,'W');
