@@ -8,10 +8,13 @@ export class Rover implements VehicleInterface {
     currentXCoord: number
     currentYCoord: number
     currentOrient: OrientationType
-    finalXCoord: number
-    finalYCoord: number
-    finalOrient: OrientationType
     
+    /**
+     * Creates an instance of a rover.
+     * @param startXCoord 
+     * @param startYCoord 
+     * @param startOrient 
+     */
     constructor(startXCoord: number, startYCoord : number, startOrient: OrientationType) {
         this.startXCoord = startXCoord
         this.startYCoord = startYCoord
@@ -21,11 +24,27 @@ export class Rover implements VehicleInterface {
         this.currentOrient = startOrient
     }
 
+    /**
+     * Stores upper right hand coordinates of the plateau.
+     */
     static plateauMaxXCoord: number;
     static plateauMaxYCoord: number;
+
+    /**
+     * Stores final positions of each rover on the plateau.
+     */
     static roversFinalPositions: number[][] = Array(100).fill(0).map(()=>Array(2).fill(0));
+
+    /**
+     * Counts number of rovers on plateau.
+     */
     static roverCount: number = 0;
 
+
+    /**
+     * Spins the rover left without changing its coordinates.
+     * @returns the rover's orientation.
+     */
     spinLeft() : OrientationType {
 		switch (this.currentOrient) {
 			case 'N':
@@ -43,6 +62,10 @@ export class Rover implements VehicleInterface {
 		}
 	}
 
+    /**
+     * Spins the rover right without changing its coordinates.
+     * @returns the rover's orientation. 
+     */
     spinRight() : OrientationType {
 		switch (this.currentOrient) {
 			case 'N':
@@ -60,6 +83,10 @@ export class Rover implements VehicleInterface {
 		}
 	}
 
+    /**
+     * Moves the rover forward by one grid point.
+     * @returns the X or Y coordinate of the rover.
+     */
     moveForwardByOne() {
         switch (this.currentOrient) {
             case 'N':
@@ -77,10 +104,20 @@ export class Rover implements VehicleInterface {
         }
     }
 
+    /**
+     * Getter - gets current coordinates of the rover.
+     * @returns the current coordinates of the rover in string form.
+     */
     getCurrentCoords() : string {
         return `${this.currentXCoord} ${this.currentYCoord}`;
     }
 
+    /**
+     * Setter - sets current coordinates of the rover.
+     * @param newXCoord 
+     * @param newYCoord 
+     * @returns current coordinates of the rover.
+     */
     setCurrentCoords(newXCoord: number, newYCoord : number, newZCoord? : number) : string {
 		if (newZCoord !== undefined || newXCoord < 0 || newYCoord < 0) {
 			throw 'Please enter a positive integer';
@@ -90,11 +127,21 @@ export class Rover implements VehicleInterface {
                 return `${this.currentXCoord} ${this.currentYCoord}`;
             }
 		}
+    
 
+    /**
+     * Getter - gets current orientation of the rover.
+     * @returns current orientation of the rover in string form.
+     */
     getCurrentOrientation() : string {
         return `${this.currentOrient}`;
     } 
 
+    /**
+     * Setter - sets current orientation of the rover.
+     * @param newOrient 
+     * @returns current orientation of the rover in string form.
+     */
     setCurrentOrientation(newOrient : OrientationType) : string {
         if (newOrient === undefined) {
             return `Please enter a new vehicle orientation e.g. N, E, W, S`;
@@ -104,6 +151,12 @@ export class Rover implements VehicleInterface {
         }
     }
 
+    /**
+     * Runs instructions for rover movement.
+     * Also checks for potential rover crashes and rovers exceeding the plateau boundary limits.
+     * @param str 
+     * @returns current coordinates and orientation of rover or message.
+     */
     runInstructions(str : string) : string {
         const instructions = str.split(''); 
         if (this.isCrash(this.currentXCoord, this.currentYCoord)) {
@@ -133,6 +186,10 @@ export class Rover implements VehicleInterface {
         return `${this.currentXCoord} ${this.currentYCoord} ${this.currentOrient}`;
     }
 
+    /**
+     * Determines whether the rover would exceed the plateau boundary limits.
+     * @returns true if the rover is outbound.
+     */
     isOutBound(): boolean {
         if (this.currentXCoord > Rover.plateauMaxXCoord) {
             return true;
@@ -149,6 +206,13 @@ export class Rover implements VehicleInterface {
         return false;
     }
 
+    /**
+     * Determines whether a rover crash is imminent.
+     * Checks if rover crashes when being placed on plateau or when moving.
+     * @param newXCoord 
+     * @param newYCoord 
+     * @returns true if a crash would occur.
+     */
     isCrash(newXCoord: number, newYCoord: number): boolean {
         for (let i = 0; i < Rover.roverCount ; i++ ) {
             if (Rover.roversFinalPositions[i][0] === newXCoord && 

@@ -7,7 +7,7 @@ beforeEach(() => {
 });
 
   describe('Test for Rover Class', () => {
-    it('should be able to create a plateau instance', () => {
+    it('should be able to create a rover instance', () => {
       const newInstanceOfRover = new Rover(3,3,'W');
       expect(newInstanceOfRover.startXCoord).toEqual(3);
       expect(newInstanceOfRover.startYCoord).toEqual(3);

@@ -9,10 +9,6 @@ export interface VehicleInterface {
     currentYCoord: number
     currentZCoord?: number
     currentOrient: OrientationType
-    finalXCoord: number
-    finalYCoord: number
-    finalZCoord?: number
-    finalOrient: OrientationType
     
     spinLeft() : OrientationType
 
