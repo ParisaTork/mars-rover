@@ -2,12 +2,12 @@ import {Rover} from '../classes/Rover';
 import {Plateau} from '../classes/Plateau'
 
 beforeEach(() => {
-  Rover.roversFinal = Array(100).fill(0).map(()=>Array(2).fill(0));
+  Rover.roversFinalPositions = Array(100).fill(0).map(()=>Array(2).fill(0));
   Rover.roverCount = 0;
 });
 
   describe('Test for Rover Class', () => {
-    it('should return values of coordinates', () => {
+    it('should be able to create a plateau instance', () => {
       const newInstanceOfRover = new Rover(3,3,'W');
       expect(newInstanceOfRover.startXCoord).toEqual(3);
       expect(newInstanceOfRover.startYCoord).toEqual(3);
@@ -16,7 +16,7 @@ beforeEach(() => {
   });
 
   describe('Test for Rover Orientation', () => {
-    it('should be able to spin left', () => {
+    it('should be able to spin the rover left', () => {
       const newInstanceOfRover = new Rover(3,3,'N');
       newInstanceOfRover.spinLeft(); 
       expect(newInstanceOfRover.currentOrient).toEqual('W');
@@ -31,7 +31,7 @@ beforeEach(() => {
       expect(newInstanceOfRover4.currentOrient).toEqual('E');
     });
 
-    it('should be able to spin right', () => {
+    it('should be able to spin the rover right', () => {
         const newInstanceOfRover = new Rover(3,3,'N');
         newInstanceOfRover.spinRight(); 
         expect(newInstanceOfRover.currentOrient).toEqual('E');
@@ -48,7 +48,7 @@ beforeEach(() => {
   });
 
   describe('Test for Rover Movement', () => {
-    it('should be able to move forward by one', () => {
+    it('should be able to move the rover forward by one', () => {
       const newInstanceOfRover = new Rover(3,3,'N');
       newInstanceOfRover.moveForwardByOne();
       expect(newInstanceOfRover.currentXCoord).toEqual(3);
@@ -58,11 +58,11 @@ beforeEach(() => {
   });
 
   describe('Test for Rover Coordinate Getter', () => {
-    it('should be return the current coordinates of the Rover', () => {
+    it('should be return the current coordinates of the rover', () => {
       const newInstanceOfRover = new Rover(3,3,'N');
       expect(newInstanceOfRover.getCurrentCoords()).toEqual('3 3');
     });
-    it('after moving forward, it should be return the current coordinates of the Rover', () => {
+    it('after moving forward, it should be return the current coordinates of the rover', () => {
       const newInstanceOfRover = new Rover(4,4,'N');
       newInstanceOfRover.moveForwardByOne()
       expect(newInstanceOfRover.getCurrentCoords()).toEqual('4 5');
@@ -70,28 +70,28 @@ beforeEach(() => {
   });
 
   describe('Test for Rover Coordinate Setter', () => {
-    it('should be able to set the coordinates of the Rover', () => {
+    it('should be able to set the coordinates of the rover', () => {
       const newInstanceOfRover = new Rover(3,3,'N');
       expect(newInstanceOfRover.setCurrentCoords(4, 4)).toEqual(`4 4`);
     });
   });
 
   describe('Test for Rover Orientation Getter', () => {
-    it('should be return the current orientation of the Rover', () => {
+    it('should be return the current orientation of the rover', () => {
       const newInstanceOfRover = new Rover(3,3,'N');
       expect(newInstanceOfRover.getCurrentOrientation()).toEqual('N');
     });
   });
 
   describe('Test for Rover Orientation Setter', () => {
-    it('should be set the orientation of the Rover', () => {
+    it('should be set the orientation of the rover', () => {
       const newInstanceOfRover = new Rover(3,3,'N');
       expect(newInstanceOfRover.setCurrentOrientation('S')).toEqual(`S`);
     });
   });
 
   describe('Test for Rover runInstructions method', () => {
-    it('should move or spin the Rover when given valid instructions', () => {
+    it('should move or spin the rover when given valid instructions', () => {
       const newInstanceOfRover = new Rover(1,2,'N');
       const movedInstance = newInstanceOfRover.runInstructions('LMLMLMLMM');
       expect(movedInstance).toEqual('1 3 N');
@@ -124,7 +124,7 @@ beforeEach(() => {
   });
 
   describe('Test Rover cannot be placed on top of another rover', () => {
-    it(`cannot be placed on top of another rover`, () => {
+    it(`should return 'Rover cannot be placed on top of another rover'`, () => {
       const maxX = 5;
       const maxY = 5;
       const newInstanceOfPlateau = new Plateau(maxX, maxY);
@@ -137,7 +137,7 @@ beforeEach(() => {
   });
 
   describe('Test Rover would crash into another rover', () => {
-    it(`would crash into another rover`, () => {
+    it(`should return 'Rover would crash into another rover'`, () => {
       const maxX = 5;
       const maxY = 5;
       const newInstanceOfPlateau = new Plateau(maxX, maxY);

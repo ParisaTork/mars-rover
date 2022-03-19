@@ -12,8 +12,8 @@ export class Plateau implements PlateauInterface {
     }
 
     setPlateauCoords(newXCoord: number, newYCoord : number) : string {
-        if (newXCoord < 1 || newYCoord < 1 || !(Number.isInteger(newXCoord)) || !(Number.isInteger(newYCoord)) || newXCoord > 100 || newYCoord > 100) {
-            throw `Please ensure your plateau coordinates are positive integers`;
+        if (newXCoord < 0 || newYCoord < 0 || !(Number.isInteger(newXCoord)) || !(Number.isInteger(newYCoord)) || newXCoord > 100 || newYCoord > 100) {
+            throw `Please ensure your plateau coordinates are between 0 and 100`;
         } else {
             this.maxXCoord = newXCoord;
             this.maxYCoord = newYCoord;

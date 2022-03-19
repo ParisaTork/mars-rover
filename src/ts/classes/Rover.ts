@@ -23,7 +23,7 @@ export class Rover implements VehicleInterface {
 
     static plateauMaxXCoord: number;
     static plateauMaxYCoord: number;
-    static roversFinal: number[][] = Array(100).fill(0).map(()=>Array(2).fill(0));
+    static roversFinalPositions: number[][] = Array(100).fill(0).map(()=>Array(2).fill(0));
     static roverCount: number = 0;
 
     spinLeft() : OrientationType {
@@ -127,8 +127,8 @@ export class Rover implements VehicleInterface {
             }     
         }
         
-        Rover.roversFinal[Rover.roverCount][0] = this.currentXCoord;
-        Rover.roversFinal[Rover.roverCount][1] = this.currentYCoord;
+        Rover.roversFinalPositions[Rover.roverCount][0] = this.currentXCoord;
+        Rover.roversFinalPositions[Rover.roverCount][1] = this.currentYCoord;
         Rover.roverCount++;
         return `${this.currentXCoord} ${this.currentYCoord} ${this.currentOrient}`;
     }
@@ -151,8 +151,8 @@ export class Rover implements VehicleInterface {
 
     isCrash(newXCoord: number, newYCoord: number): boolean {
         for (let i = 0; i < Rover.roverCount ; i++ ) {
-            if (Rover.roversFinal[i][0] === newXCoord && 
-                Rover.roversFinal[i][1] === newYCoord) {
+            if (Rover.roversFinalPositions[i][0] === newXCoord && 
+                Rover.roversFinalPositions[i][1] === newYCoord) {
                return true;
             }
         }
