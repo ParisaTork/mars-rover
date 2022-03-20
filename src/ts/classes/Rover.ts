@@ -1,5 +1,6 @@
 import { OrientationType } from "../types/types"
 import { VehicleInterface } from "../interfaces/Vehicle.interface"
+import { Plateau } from "./Plateau"
 
 export class Rover implements VehicleInterface {
     startXCoord: number
@@ -23,12 +24,6 @@ export class Rover implements VehicleInterface {
         this.currentYCoord = startYCoord
         this.currentOrient = startOrient
     }
-
-    /**
-     * Stores upper right hand coordinates of the plateau.
-     */
-    static plateauMaxXCoord: number;
-    static plateauMaxYCoord: number;
 
     /**
      * Stores final positions of each rover on the plateau.
@@ -191,10 +186,10 @@ export class Rover implements VehicleInterface {
      * @returns true if the rover is outbound.
      */
     isOutBound(): boolean {
-        if (this.currentXCoord > Rover.plateauMaxXCoord) {
+        if (this.currentXCoord > Plateau.plateauMaxXCoord) {
             return true;
         } 
-        else if (this.currentYCoord > Rover.plateauMaxYCoord) {
+        else if (this.currentYCoord > Plateau.plateauMaxYCoord) {
             return true;
         }
         else if (this.currentXCoord < 0) {

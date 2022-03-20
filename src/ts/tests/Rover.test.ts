@@ -100,9 +100,9 @@ beforeEach(() => {
 
   describe('Test test case in brief', () => {
     it(`should give the same output as in the brief`, () => {
-      const maxX = 5;
-      const maxY = 5;
-      const newInstanceOfPlateau = new Plateau(maxX, maxY);
+      Plateau.plateauMaxXCoord = 5;
+      Plateau.plateauMaxYCoord = 5;
+      const newInstanceOfPlateau = new Plateau(Plateau.plateauMaxXCoord, Plateau.plateauMaxYCoord);
       const newInstanceOfRover = new Rover(1,2,'N');
       const movedInstance = newInstanceOfRover.runInstructions('LMLMLMLMM');
       const newInstanceOfRover2 = new Rover(3,3,'E');
@@ -114,9 +114,9 @@ beforeEach(() => {
 
   describe('Testing when rover moves off plateau', () => {
     it(`should return 'Rover would go out of bounds'`, () => {
-      Rover.plateauMaxXCoord = 5;
-      Rover.plateauMaxYCoord = 5;
-      const newInstanceOfPlateau = new Plateau(Rover.plateauMaxXCoord, Rover.plateauMaxYCoord);
+      Plateau.plateauMaxXCoord = 5;
+      Plateau.plateauMaxYCoord = 5;
+      const newInstanceOfPlateau = new Plateau(Plateau.plateauMaxXCoord, Plateau.plateauMaxYCoord);
       const newInstanceOfRover = new Rover(0,0,'S');
       const movedInstance2 = newInstanceOfRover.runInstructions('M');
       expect(movedInstance2).toEqual('Rover would go out of bounds');
@@ -125,9 +125,9 @@ beforeEach(() => {
 
   describe('Test Rover cannot be placed on top of another rover', () => {
     it(`should return 'Rover cannot be placed on top of another rover'`, () => {
-      const maxX = 5;
-      const maxY = 5;
-      const newInstanceOfPlateau = new Plateau(maxX, maxY);
+      Plateau.plateauMaxXCoord = 4;
+      Plateau.plateauMaxYCoord = 4;
+      const newInstanceOfPlateau = new Plateau(Plateau.plateauMaxXCoord, Plateau.plateauMaxYCoord);
       const newInstanceOfRover = new Rover(1,2,'N');
       const movedInstance = newInstanceOfRover.runInstructions('L');
       const newInstanceOfRover2 = new Rover(1,2,'S');
@@ -138,9 +138,9 @@ beforeEach(() => {
 
   describe('Test Rover would crash into another rover', () => {
     it(`should return 'Rover would crash into another rover'`, () => {
-      const maxX = 5;
-      const maxY = 5;
-      const newInstanceOfPlateau = new Plateau(maxX, maxY);
+      Plateau.plateauMaxXCoord = 3;
+      Plateau.plateauMaxYCoord = 3;
+      const newInstanceOfPlateau = new Plateau(Plateau.plateauMaxXCoord, Plateau.plateauMaxYCoord);
       const newInstanceOfRover = new Rover(1,2,'N');
       const movedInstance = newInstanceOfRover.runInstructions('L');
       const newInstanceOfRover2 = new Rover(1,3,'S');

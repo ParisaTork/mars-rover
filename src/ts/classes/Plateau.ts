@@ -14,6 +14,12 @@ export class Plateau implements PlateauInterface {
     }
 
     /**
+     * Stores upper right hand coordinates of the plateau.
+     */
+         static plateauMaxXCoord: number;
+         static plateauMaxYCoord: number;
+
+    /**
      * Getter - gets plateau coordinates.
      * @returns plateau coordinates in string form. 
      */
